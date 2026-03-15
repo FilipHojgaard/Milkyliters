@@ -1,0 +1,112 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+*.userprefs
+*.VisualState.xml
+*.ide/
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# .NET
+*.dll
+*.exe
+*.pdb
+*.cache
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.ipdb
+*.log
+
+# MAUI / Android
+*.apk
+*.aab
+*.keystore
+google-services.json
+
+# MAUI / iOS (if ever needed)
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# SQLite databases
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# EF Core
+*.db-journal
+
+# User-specific
+*.DotSettings.user
+launchSettings.json
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Publish output
+publish/
+PublishProfiles/
+
+# Test results
+TestResults/
+*.trx
+coverage*/
+*.coverage
+*.coveragexml
+
+# Claude Code
+CLAUDE.md
+
+# Misc
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
