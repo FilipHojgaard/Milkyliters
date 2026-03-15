@@ -16,8 +16,8 @@ namespace Milkyliters
                 });
 
             // Services
-
-            // EF Core
+            builder.Services.AddSingleton<Data.DatabaseService>();
+            builder.Services.AddSingleton<App>();
 
 #if DEBUG
             builder.Logging.AddDebug();
