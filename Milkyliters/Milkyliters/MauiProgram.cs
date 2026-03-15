@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using Milkyliters.Data;
+﻿using Microsoft.Extensions.Logging;
 
 namespace Milkyliters
 {
@@ -18,12 +16,8 @@ namespace Milkyliters
                 });
 
             // Services
-            builder.Services.AddSingleton<App>();
 
             // EF Core
-            builder.Services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlite($"Data Source={Path.Combine(FileSystem.AppDataDirectory, "milkyliters.db")}"));
-
 
 #if DEBUG
             builder.Logging.AddDebug();
