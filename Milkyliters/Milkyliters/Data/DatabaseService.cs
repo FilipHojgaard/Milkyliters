@@ -16,6 +16,7 @@ public class DatabaseService
     public async Task InitializeAsync()
     {
         await _db.CreateTableAsync<Feeding>();
+        await _db.CreateTableAsync<Poo>();
     }
 
     public SQLiteAsyncConnection Connection => _db;
