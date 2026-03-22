@@ -2,7 +2,7 @@
 
 public interface IFeedingService
 {
-    Task<int> GetLast24HourMl();
-    Task<int> GetTotalMlSinceMidnight();
-    Task AddFeeding(int ml, DateTime? timestamp = null);
+    Task<int> GetLast24HourMlAsync();
+    Task<int> GetTotalMlSinceMidnightAsync();
+    Task AddFeedingAsync(int ml, DateTime? timestamp = null);
 }

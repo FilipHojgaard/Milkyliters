@@ -4,5 +4,5 @@ public interface IPooService
 {
     Task AddPoo();
 
-    Task<TimeSpan> LastPooSince();
+    Task<int?> GetDaysSinceLastPooAsync();
 }

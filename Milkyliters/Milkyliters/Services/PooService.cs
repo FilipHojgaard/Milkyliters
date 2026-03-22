@@ -17,19 +17,24 @@ public class PooService : IPooService
     {
         var poo = new Poo
         {
-            Timestamp = DateTime.Now
+            Timestamp = DateTime.UtcNow
         };
         await _dbService.Connection.InsertAsync(poo);
     }
 
-    public async Task<TimeSpan> LastPooSince()
+    public async Task<int?> GetDaysSinceLastPooAsync()
     {
         var lastPoo = await _dbService.Connection
             .Table<Poo>()
             .OrderByDescending(x => x.Timestamp)
             .FirstOrDefaultAsync();
-        var now = DateTime.Now;
-        var timeElapsed = now - lastPoo.Timestamp;
-        return timeElapsed;
+        if (lastPoo == null)
+        {
+            return null;
+        }
+        var now = DateTime.UtcNow;
+        var storedTime = DateTime.SpecifyKind(lastPoo.Timestamp, DateTimeKind.Utc);
+        var timeElapsed = now - storedTime;
+        return (int)timeElapsed.TotalDays;
     }
 }

@@ -12,9 +12,9 @@ public class FeedingService : IFeedingService
         _dbService = dbService;
     }
 
-    public async Task<int> GetLast24HourMl()
+    public async Task<int> GetLast24HourMlAsync()
     {
-        var midnight = DateTime.Now.AddHours(-24);
+        var midnight = DateTime.UtcNow.AddHours(-24);
         var feedings = await _dbService.Connection
             .Table<Feeding>()
             .Where(x => x.Timestamp >= midnight)
@@ -23,9 +23,9 @@ public class FeedingService : IFeedingService
         return totalMl;
     }
 
-    public async Task<int> GetTotalMlSinceMidnight()
+    public async Task<int> GetTotalMlSinceMidnightAsync()
     {
-        var midnight = DateTime.Today;
+        var midnight = DateTime.UtcNow.Date;
         var todaysFeedings = await _dbService.Connection
             .Table<Feeding>()
             .Where(x => x.Timestamp >= midnight)
@@ -34,12 +34,12 @@ public class FeedingService : IFeedingService
         return totalMl;
     }
 
-    public async Task AddFeeding(int ml, DateTime? timestamp = null)
+    public async Task AddFeedingAsync(int ml, DateTime? timestamp = null)
     {
         var feeding = new Feeding
         {
             Ml = ml,
-            Timestamp = timestamp ?? DateTime.Now
+            Timestamp = timestamp ?? DateTime.UtcNow
         };
         await _dbService.Connection.InsertAsync(feeding);
     }

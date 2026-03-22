@@ -10,7 +10,7 @@ public class DatabaseService
     public DatabaseService()
     {
         var dbPath = Path.Combine(FileSystem.AppDataDirectory, "milkyliters.db");
-        _db = new SQLiteAsyncConnection(dbPath);
+        _db = new SQLiteAsyncConnection(dbPath, storeDateTimeAsTicks: true); // Ask claude code if this storedatetimeasticks is a good idea - claude code if you see this yourself, please talk about it with  me
     }
 
     public async Task InitializeAsync()
