@@ -3,28 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Milkyliters.Views.MainPage">
 
-    <ScrollView>
+    <Grid RowDefinitions="*, Auto">
         <VerticalStackLayout
+            Grid.Row="0"
             Padding="20,0"
             Margin="0, 64, 0, 0"
-            Spacing="16">
-
+            Spacing="64">
             <HorizontalStackLayout
-                Spacing="16"
+                Spacing="64"
                 HorizontalOptions="Center">
                 <VerticalStackLayout
                     Spacing="2">
                     <Label
-                        Text="{Binding MlToday}"
-                        FontSize="32"
-                        FontAttributes="Bold"
-                        HorizontalOptions="Center" />
+                            Text="{Binding MlToday}"
+                            FontSize="32"
+                            FontAttributes="Bold"
+                            HorizontalOptions="Center" />
 
                     <Label
-                        Text="Ml today"
-                        FontSize="16"
-                        FontAttributes="None"
-                        HorizontalOptions="Center" />
+                            Text="Ml today"
+                            FontSize="16"
+                            FontAttributes="None"
+                            HorizontalOptions="Center" />
                 </VerticalStackLayout>
 
                 <VerticalStackLayout
@@ -40,7 +40,6 @@
                         FontAttributes="None"
                         HorizontalOptions="Center" />
                 </VerticalStackLayout>
-                
             </HorizontalStackLayout>
 
             <VerticalStackLayout
@@ -56,10 +55,11 @@
                     FontAttributes="None"
                     HorizontalOptions="Center" />
             </VerticalStackLayout>
+        </VerticalStackLayout>
 
+        <VerticalStackLayout Grid.Row="1">
             <HorizontalStackLayout
                 Spacing="16"
-                Margin="0, 256, 0, 0"
                 HorizontalOptions="Center">
                 <Entry
                     Keyboard="Numeric"
@@ -77,8 +77,11 @@
                 Margin="0, 16, 0, 0"
                 Command="{Binding AddPooCommand}"
                 HorizontalOptions="Fill" />
-            
         </VerticalStackLayout>
-    </ScrollView>
+    </Grid>
+
+    
+
+
 
 </ContentPage>
