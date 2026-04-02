@@ -15,16 +15,16 @@
                 <VerticalStackLayout
                     Spacing="2">
                     <Label
-                            Text="{Binding MlToday}"
-                            FontSize="32"
-                            FontAttributes="Bold"
-                            HorizontalOptions="Center" />
+                        Text="{Binding MlToday}"
+                        FontSize="32"
+                        FontFamily="NunitoBold"
+                        HorizontalOptions="Center" />
 
                     <Label
-                            Text="Ml today"
-                            FontSize="16"
-                            FontAttributes="None"
-                            HorizontalOptions="Center" />
+                        Text="Ml today"
+                        FontSize="16"
+                        FontFamily="NunitoRegular"
+                        HorizontalOptions="Center" />
                 </VerticalStackLayout>
 
                 <VerticalStackLayout
@@ -32,12 +32,12 @@
                     <Label
                         Text="{Binding MlLast24Hours}"
                         FontSize="32"
-                        FontAttributes="Bold"
+                        FontFamily="NunitoBold"
                         HorizontalOptions="Center" />
                     <Label
                         Text="Ml last 24 hours"
                         FontSize="16"
-                        FontAttributes="None"
+                        FontFamily="NunitoRegular"
                         HorizontalOptions="Center" />
                 </VerticalStackLayout>
             </HorizontalStackLayout>
@@ -47,26 +47,28 @@
                 <Label
                     Text="{Binding DaysSinceLastPoo, TargetNullValue='-'}"
                     FontSize="32"
-                    FontAttributes="Bold"
+                    FontFamily="NunitoBold"
                     HorizontalOptions="Center" />
                 <Label
                     Text="Days since last poo"
                     FontSize="16"
-                    FontAttributes="None"
+                    FontFamily="NunitoRegular"
                     HorizontalOptions="Center" />
             </VerticalStackLayout>
         </VerticalStackLayout>
 
-        <VerticalStackLayout Grid.Row="1">
+        <VerticalStackLayout Grid.Row="1" Margin="0, 0, 0, 16">
             <HorizontalStackLayout
                 Spacing="16"
                 HorizontalOptions="Center">
                 <Entry
                     Keyboard="Numeric"
+                    FontFamily="NunitoRegular"
                     Text="{Binding AddMl, Mode=TwoWay}" />
 
                 <Button
-                    Text="Submit"
+                    Text="Add Feeding"
+                    FontFamily="NunitoRegular"
                     Command="{Binding AddFeedingCommand}"
                     HorizontalOptions="Fill" />
 
@@ -74,6 +76,7 @@
 
             <Button
                 Text="Add Poo"
+                FontFamily="NunitoRegular"
                 Margin="0, 16, 0, 0"
                 Command="{Binding AddPooCommand}"
                 HorizontalOptions="Fill" />
