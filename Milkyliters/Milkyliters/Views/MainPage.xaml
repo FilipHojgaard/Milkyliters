@@ -21,7 +21,7 @@
                         HorizontalOptions="Center" />
 
                     <Label
-                        Text="Ml today"
+                        Text="Ml Idag"
                         FontSize="16"
                         FontFamily="NunitoRegular"
                         HorizontalOptions="Center" />
@@ -35,7 +35,7 @@
                         FontFamily="NunitoBold"
                         HorizontalOptions="Center" />
                     <Label
-                        Text="Ml last 24 hours"
+                        Text="Ml sidste 24 timer"
                         FontSize="16"
                         FontFamily="NunitoRegular"
                         HorizontalOptions="Center" />
@@ -50,7 +50,7 @@
                     FontFamily="NunitoBold"
                     HorizontalOptions="Center" />
                 <Label
-                    Text="Days since last poo"
+                    Text="Dage siden sidste poo"
                     FontSize="16"
                     FontFamily="NunitoRegular"
                     HorizontalOptions="Center" />
@@ -67,7 +67,7 @@
                     Text="{Binding AddMl, Mode=TwoWay}" />
 
                 <Button
-                    Text="Add Feeding"
+                    Text="Tilføj mad"
                     FontFamily="NunitoRegular"
                     Command="{Binding AddFeedingCommand}"
                     HorizontalOptions="Fill" />
@@ -75,7 +75,7 @@
             </HorizontalStackLayout>
 
             <Button
-                Text="Add Poo"
+                Text="Tilføj Poo"
                 FontFamily="NunitoRegular"
                 Margin="0, 16, 0, 0"
                 Command="{Binding AddPooCommand}"

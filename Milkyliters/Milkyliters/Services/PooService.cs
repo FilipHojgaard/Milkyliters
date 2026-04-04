@@ -32,7 +32,7 @@ public class PooService : IPooService
         {
             return null;
         }
-        var now = DateTime.UtcNow;
+        var now = DateTime.Now.ToUniversalTime();
         var storedTime = DateTime.SpecifyKind(lastPoo.Timestamp, DateTimeKind.Utc);
         var timeElapsed = now - storedTime;
         return (int)timeElapsed.TotalDays;

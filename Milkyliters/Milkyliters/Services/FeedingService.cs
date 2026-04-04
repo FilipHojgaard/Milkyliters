@@ -25,7 +25,7 @@ public class FeedingService : IFeedingService
 
     public async Task<int> GetTotalMlSinceMidnightAsync()
     {
-        var midnight = DateTime.UtcNow.Date;
+        var midnight = DateTime.Now.Date.ToUniversalTime(); // Get local midnight and convert to utc. 
         var todaysFeedings = await _dbService.Connection
             .Table<Feeding>()
             .Where(x => x.Timestamp >= midnight)
