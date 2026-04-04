@@ -15,6 +15,18 @@ public partial class MainPage : ContentPage
     protected async override void OnAppearing()
     {
         base.OnAppearing();
+        Window.Resumed += OnWindowResumed;
+        await _viewModel.InitializeAsync();
+    }
+
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+        Window.Resumed -= OnWindowResumed;
+    }
+
+    private async void OnWindowResumed(object? sender, EventArgs e)
+    {
         await _viewModel.InitializeAsync();
     }
 }

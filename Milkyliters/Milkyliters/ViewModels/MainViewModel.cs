@@ -38,6 +38,7 @@ public partial class MainViewModel : ObservableObject
     private async Task AddFeeding()
     {
         await _feedingService.AddFeedingAsync(AddMl);
+        HapticFeedback.Default.Perform(HapticFeedbackType.LongPress);
         await InitializeAsync();
     }
 
@@ -45,6 +46,7 @@ public partial class MainViewModel : ObservableObject
     private async Task AddPoo()
     {
         await _pooService.AddPoo();
+        HapticFeedback.Default.Perform(HapticFeedbackType.LongPress);
         await InitializeAsync();
     }
 }
