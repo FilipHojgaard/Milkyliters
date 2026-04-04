@@ -7,9 +7,13 @@
     xmlns:Views="clr-namespace:Milkyliters.Views"
     Title="Milkyliters">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate Views:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        <Tab Title="Hjem">
+            <ShellContent ContentTemplate="{DataTemplate Views:MainPage}" />
+        </Tab>
+        <Tab Title="Mad">
+            <ShellContent ContentTemplate="{DataTemplate Views:FeedingHistoryPage}" />
+        </Tab>
+    </TabBar>
 
 </Shell>

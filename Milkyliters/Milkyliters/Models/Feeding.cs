@@ -12,5 +12,8 @@ public class Feeding
 
     public DateTime Timestamp { get; set; }
 
-    public MilktypeEnum Milkype { get; set; } = MilktypeEnum.Semper;
+    public string LocalTime => Timestamp.ToLocalTime().ToString("HH:mm");
+
+    [Column("Milkype")]
+    public MilktypeEnum Milktype { get; set; } = MilktypeEnum.Semper;
 }

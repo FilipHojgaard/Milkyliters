@@ -26,8 +26,14 @@ public static class MauiProgram
         builder.Services.AddSingleton<App>();
         builder.Services.AddSingleton<IFeedingService, FeedingService>();
         builder.Services.AddSingleton<IPooService, PooService>();
+
+        // Pages
         builder.Services.AddSingleton<MainPage>();
+        builder.Services.AddSingleton<FeedingHistoryPage>();
+
+        // ViewModels
         builder.Services.AddSingleton<MainViewModel>();
+        builder.Services.AddSingleton<FeedingHistoryViewModel>();
 
 #if DEBUG
         builder.Logging.AddDebug();
