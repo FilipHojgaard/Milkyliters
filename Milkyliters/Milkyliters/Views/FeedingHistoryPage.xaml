@@ -12,9 +12,10 @@
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="8" />
                     </Border.StrokeShape>
-                    <Grid ColumnDefinitions="*, Auto" Padding="16,8">
+                    <Grid ColumnDefinitions="Auto, *, Auto" Padding="16,8">
                         <Label Grid.Column="0" Text="{Binding LocalDay}" FontSize="16" FontFamily="NunitoBold" />
-                        <Label Grid.Column="1" Text="{Binding TotalMl, StringFormat='{0} ml'}" FontSize="16" FontFamily="NunitoBold"/>
+                        <Label Grid.Column="1" Text="{Binding TotalBottles, StringFormat='{0} flasker'}" FontSize="16" FontFamily="NunitoBold" HorizontalOptions="Center"/>
+                        <Label Grid.Column="2" Text="{Binding TotalMl, StringFormat='{0} ml'}" FontSize="16" FontFamily="NunitoBold"/>
                     </Grid>
                 </Border>
             </DataTemplate>

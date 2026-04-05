@@ -6,7 +6,7 @@ public class PooGroup : List<Poo>
 
     public int TotalPoo { get; set; }
 
-    public string LocalDate => Date.ToString("dd-MM-yyyy");
+    public string LocalDate => StringHelpers.PresentDates(Date);
 
     public PooGroup(DateTime date, List<Poo> poos)
     {

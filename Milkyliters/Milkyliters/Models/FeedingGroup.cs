@@ -6,12 +6,15 @@ public class FeedingGroup : List<Feeding>
 
     public int TotalMl { get; set; }
 
-    public string LocalDay => Date.ToString("dd-MM-yyyy");
+    public int TotalBottles { get; set; } 
+
+    public string LocalDay => StringHelpers.PresentDates(Date);
 
     public FeedingGroup(DateTime today, List<Feeding> feedings)
     {
         Date = today;
         TotalMl = feedings.Sum(x => x.Ml);
+        TotalBottles = feedings.Count;
         AddRange(feedings);
     }
 }
