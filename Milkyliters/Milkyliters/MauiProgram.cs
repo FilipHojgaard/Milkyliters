@@ -30,10 +30,12 @@ public static class MauiProgram
         // Pages
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddSingleton<FeedingHistoryPage>();
+        builder.Services.AddSingleton<PooHistoryPage>();
 
         // ViewModels
         builder.Services.AddSingleton<MainViewModel>();
         builder.Services.AddSingleton<FeedingHistoryViewModel>();
+        builder.Services.AddSingleton<PooHistoryViewModel>();
 
 #if DEBUG
         builder.Logging.AddDebug();

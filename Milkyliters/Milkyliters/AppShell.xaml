@@ -14,6 +14,9 @@
         <Tab Title="Mad">
             <ShellContent ContentTemplate="{DataTemplate Views:FeedingHistoryPage}" />
         </Tab>
+        <Tab Title="Poo">
+            <ShellContent ContentTemplate="{DataTemplate Views:PooHistoryPage}" />
+        </Tab>
     </TabBar>
 
 </Shell>

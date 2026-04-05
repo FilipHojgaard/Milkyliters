@@ -8,4 +8,6 @@ public class Poo
     public int Id { get; set; }
 
     public DateTime Timestamp { get; set; }
+
+    public string LocalTime => Timestamp.ToLocalTime().ToString("HH:mm");
 }
