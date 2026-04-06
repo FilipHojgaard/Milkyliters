@@ -22,6 +22,11 @@ public class PooService : IPooService
         await _dbService.Connection.InsertAsync(poo);
     }
 
+    public async Task DeletePooAsync(int pooId)
+    {
+        await _dbService.Connection.DeleteAsync<Poo>(pooId);
+    }
+
     public async Task<int?> GetDaysSinceLastPooAsync()
     {
         var lastPoo = await _dbService.Connection

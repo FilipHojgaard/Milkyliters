@@ -54,4 +54,9 @@ public class FeedingService : IFeedingService
             .ToListAsync();
         return feedings;
     }
+
+    public async Task DeleteFeedingAsync(int feedingId)
+    {
+        await _dbService.Connection.DeleteAsync<Feeding>(feedingId);
+    }
 }

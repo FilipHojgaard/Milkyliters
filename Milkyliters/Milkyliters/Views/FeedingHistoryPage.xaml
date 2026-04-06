@@ -23,16 +23,27 @@
 
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Border Stroke="#CCCCCC" StrokeThickness="1" Margin="32, 0, 16, 0">
-                    <Border.StrokeShape>
-                        <RoundRectangle CornerRadius="8" />
-                    </Border.StrokeShape>
-                    <Grid ColumnDefinitions="Auto, *, Auto" Padding="16,8">
-                        <Label Grid.Column="0" Text="{Binding LocalTime}" FontSize="16" FontFamily="NunitoRegular" />
-                        <Label Grid.Column="1" Text="{Binding Ml, StringFormat='{0} ml'}" FontSize="16" FontFamily="NunitoRegular" HorizontalOptions="Center"/>
-                        <Label Grid.Column="2" Text="{Binding Milktype}" FontSize="16" FontFamily="NunitoRegular" />
-                    </Grid>
-                </Border>
+                <SwipeView>
+                    <SwipeView.RightItems>
+                        <SwipeItems>
+                            <SwipeItem Text="Slet"
+                                       BackgroundColor="Red"
+                                       Command="{Binding Source={RelativeSource AncestorType={x:Type CollectionView}}, Path=BindingContext.DeleteFeedingCommand}"
+                                       CommandParameter="{Binding .}" />
+                        </SwipeItems>
+                    </SwipeView.RightItems>
+                    
+                    <Border Stroke="#CCCCCC" StrokeThickness="1" Margin="32, 0, 16, 0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="8" />
+                        </Border.StrokeShape>
+                        <Grid ColumnDefinitions="Auto, *, Auto" Padding="16,8">
+                            <Label Grid.Column="0" Text="{Binding LocalTime}" FontSize="16" FontFamily="NunitoRegular" />
+                            <Label Grid.Column="1" Text="{Binding Ml, StringFormat='{0} ml'}" FontSize="16" FontFamily="NunitoRegular" HorizontalOptions="Center"/>
+                            <Label Grid.Column="2" Text="{Binding Milktype}" FontSize="16" FontFamily="NunitoRegular" />
+                        </Grid>
+                    </Border>
+                </SwipeView>
             </DataTemplate>
         </CollectionView.ItemTemplate>
 

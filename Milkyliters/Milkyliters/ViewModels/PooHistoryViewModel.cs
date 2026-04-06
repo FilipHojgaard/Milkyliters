@@ -1,11 +1,12 @@
 ﻿using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Milkyliters.Models;
 using Milkyliters.Services;
 
 namespace Milkyliters.ViewModels;
 
-public class PooHistoryViewModel : ObservableObject
+public partial class PooHistoryViewModel : ObservableObject
 {
     private readonly IPooService _pooService;
 
@@ -32,5 +33,13 @@ public class PooHistoryViewModel : ObservableObject
         {
             PooGroups.Add(pooGroup);
         }
+    }
+
+    [RelayCommand]
+    public async Task DeletePooAsync(Poo poo)
+    {
+        await _pooService.DeletePooAsync(poo.Id);
+
+        await LoadRecentPoosAsync();
     }
 }

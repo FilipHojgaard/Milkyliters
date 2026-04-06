@@ -9,4 +9,6 @@ public interface IPooService
     Task<int?> GetDaysSinceLastPooAsync();
 
     Task<List<Poo>> GetRecentPooGroupsAsync();
+
+    Task DeletePooAsync(int pooId);
 }

@@ -11,4 +11,6 @@ public interface IFeedingService
     Task AddFeedingAsync(int ml, DateTime? timestamp = null);
     
     Task<List<Feeding>> GetRecentFeedingsAsync();
+
+    Task DeleteFeedingAsync(int feedingId);
 }

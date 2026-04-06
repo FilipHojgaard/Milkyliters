@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Milkyliters.Models;
 using Milkyliters.Services;
 
@@ -32,5 +33,13 @@ public partial class FeedingHistoryViewModel : ObservableObject
         {
             FeedingGroups.Add(feedingGroup);
         }
+    }
+
+    [RelayCommand]
+    public async Task DeleteFeedingAsync(Feeding feeding)
+    {
+        await _feedingService.DeleteFeedingAsync(feeding.Id);
+        HapticFeedback.Default.Perform(HapticFeedbackType.LongPress);
+        await LoadRecentFeedingsAsync();
     }
 }
