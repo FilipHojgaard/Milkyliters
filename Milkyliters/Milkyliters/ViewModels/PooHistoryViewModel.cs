@@ -39,7 +39,7 @@ public partial class PooHistoryViewModel : ObservableObject
     public async Task DeletePooAsync(Poo poo)
     {
         await _pooService.DeletePooAsync(poo.Id);
-
+        HapticFeedback.Default.Perform(HapticFeedbackType.LongPress);
         await LoadRecentPoosAsync();
     }
 }
