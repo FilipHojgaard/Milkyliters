@@ -18,6 +18,10 @@ public partial class MainViewModel : ObservableObject
     [ObservableProperty]
     public partial int? DaysSinceLastPoo { get; set; }
 
+    [ObservableProperty]
+    public partial string? AddMlErrorMessage { get; set; }
+
+
     IFeedingService _feedingService;
     IPooService _pooService;
 
@@ -37,6 +41,12 @@ public partial class MainViewModel : ObservableObject
     [RelayCommand]
     private async Task AddFeeding()
     {
+        if (AddMl <= 0)
+        {
+            AddMlErrorMessage = "Ml skal være over 0";
+            return;
+        }
+        AddMlErrorMessage = null;
         await _feedingService.AddFeedingAsync(AddMl);
         HapticFeedback.Default.Perform(HapticFeedbackType.LongPress);
         await InitializeAsync();

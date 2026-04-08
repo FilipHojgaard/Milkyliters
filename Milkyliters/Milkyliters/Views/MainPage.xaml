@@ -61,10 +61,16 @@
             <HorizontalStackLayout
                 Spacing="16"
                 HorizontalOptions="Center">
-                <Entry
-                    Keyboard="Numeric"
-                    FontFamily="NunitoRegular"
-                    Text="{Binding AddMl, Mode=TwoWay}" />
+                <VerticalStackLayout Spacing="8">
+                    <Entry
+                        Keyboard="Numeric"
+                        FontFamily="NunitoRegular"
+                        Text="{Binding AddMl, Mode=TwoWay}" />
+
+                    <Label Text="{Binding AddMlErrorMessage}"
+                           IsVisible="{Binding AddMlErrorMessage, Converter={StaticResource StringNotNullOrEmptyBoolConverter}}"
+                           TextColor="Red" />
+                </VerticalStackLayout>
 
                 <Button
                     Text="Tilføj mad"
