@@ -33,7 +33,7 @@
                         </SwipeItems>
                     </SwipeView.RightItems>
 
-                    <Border Stroke="#CCCCCC" StrokeThickness="1" Margin="32, 0, 16, 0">
+                    <Border Stroke="#CCCCCC" StrokeThickness="1" Margin="16, 0, 16, 0">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="8" />
                         </Border.StrokeShape>
