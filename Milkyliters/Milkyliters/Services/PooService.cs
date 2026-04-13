@@ -43,12 +43,10 @@ public class PooService : IPooService
         return (int)timeElapsed.TotalDays;
     }
 
-    public async Task<List<Poo>> GetRecentPooGroupsAsync()
+    public async Task<List<Poo>> GetAllPoosGroupsAsync()
     {
-        var cutoffDate = DateTime.Now.AddDays(-7).ToUniversalTime();
         var poos = await _dbService.Connection
             .Table<Poo>()
-            .Where(x => x.Timestamp >= cutoffDate)
             .OrderByDescending(x => x.Timestamp)
             .ToListAsync();
         return poos;

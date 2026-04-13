@@ -8,7 +8,7 @@ public interface IPooService
 
     Task<int?> GetDaysSinceLastPooAsync();
 
-    Task<List<Poo>> GetRecentPooGroupsAsync();
+    Task<List<Poo>> GetAllPoosGroupsAsync();
 
     Task DeletePooAsync(int pooId);
 }

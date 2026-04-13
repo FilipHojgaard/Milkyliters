@@ -21,7 +21,7 @@ public partial class PooHistoryViewModel : ObservableObject
 
     public async Task LoadRecentPoosAsync()
     {
-        var poos = await _pooService.GetRecentPooGroupsAsync();
+        var poos = await _pooService.GetAllPoosGroupsAsync();
         var pooGroups = poos
             .GroupBy(f => f.Timestamp.ToLocalTime().Date)
             .Select(g => new PooGroup(g.Key, g.ToList()))

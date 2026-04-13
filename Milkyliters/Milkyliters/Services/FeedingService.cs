@@ -44,12 +44,10 @@ public class FeedingService : IFeedingService
         await _dbService.Connection.InsertAsync(feeding);
     }
 
-    public async Task<List<Feeding>> GetRecentFeedingsAsync()
+    public async Task<List<Feeding>> GetAllFeedingsAsync()
     {
-        var cutoffTime = DateTime.Now.Date.AddDays(-7).ToUniversalTime();
         var feedings = await _dbService.Connection
             .Table<Feeding>()
-            .Where(x => x.Timestamp >= cutoffTime)
             .OrderByDescending(x => x.Timestamp)
             .ToListAsync();
         return feedings;

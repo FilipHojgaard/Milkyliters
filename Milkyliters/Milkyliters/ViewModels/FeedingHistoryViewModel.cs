@@ -21,7 +21,7 @@ public partial class FeedingHistoryViewModel : ObservableObject
 
     public async Task LoadRecentFeedingsAsync()
     {
-        var feedings = await _feedingService.GetRecentFeedingsAsync();
+        var feedings = await _feedingService.GetAllFeedingsAsync();
         var feedingGroups = feedings
             .GroupBy(f => f.Timestamp.ToLocalTime().Date)
             .Select(g => new FeedingGroup(g.Key, g.ToList()))
