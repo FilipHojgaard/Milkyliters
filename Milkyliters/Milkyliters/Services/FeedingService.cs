@@ -44,6 +44,18 @@ public class FeedingService : IFeedingService
         await _dbService.Connection.InsertAsync(feeding);
     }
 
+    public async Task UpdateFeedingAsync(int feedingId, int ml, DateTime timestamp, MilktypeEnum milktype)
+    {
+        var feeding = await _dbService.Connection.FindAsync<Feeding>(feedingId);
+        if (feeding != null)
+        {
+            feeding.Ml = ml;
+            feeding.Timestamp = timestamp;
+            feeding.Milktype = milktype;
+            await _dbService.Connection.UpdateAsync(feeding);
+        }
+    }
+
     public async Task<List<Feeding>> GetAllFeedingsAsync()
     {
         var feedings = await _dbService.Connection

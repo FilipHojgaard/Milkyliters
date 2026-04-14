@@ -9,7 +9,9 @@ public interface IFeedingService
     Task<int> GetTotalMlSinceMidnightAsync();
 
     Task AddFeedingAsync(int ml, DateTime? timestamp = null);
-    
+
+    Task UpdateFeedingAsync(int feedingId, int ml, DateTime timestamp, MilktypeEnum milktype);
+
     Task<List<Feeding>> GetAllFeedingsAsync();
 
     Task DeleteFeedingAsync(int feedingId);
