@@ -23,7 +23,7 @@ public partial class EditFeedingViewModel : ObservableObject
     public partial MilktypeEnum UpdateMilkType{ get; set; }
 
     [ObservableProperty]
-    public partial string? AddMlErrorMessage { get; set; }
+    public partial string? EditMlErrorMessage { get; set; }
 
     public EditFeedingViewModel(IFeedingService feedingService)
     {
@@ -35,10 +35,23 @@ public partial class EditFeedingViewModel : ObservableObject
     {
         if (UpdateMl <= 0)
         {
-            AddMlErrorMessage = "Ml skal være over 0";
+            EditMlErrorMessage = "Ml skal være over 0";
             return;
         }
         await _feedingService.UpdateFeedingAsync(FeedingId, UpdateMl, UpdateTimestamp, UpdateMilkType);
+
+        await Shell.Current.GoToAsync("..");
+    }
+
+    async partial void OnFeedingIdChanged(int value)
+    {
+        var feeding = await _feedingService.GetFeedingByIdAsync(value);
+        if (feeding != null)
+        {
+            UpdateMl = feeding.Ml;
+            UpdateTimestamp = feeding.Timestamp;
+            UpdateMilkType = feeding.Milktype;
+        }
     }
 
 }
