@@ -69,4 +69,10 @@ public class FeedingService : IFeedingService
     {
         await _dbService.Connection.DeleteAsync<Feeding>(feedingId);
     }
+
+    public async Task<Feeding?> GetFeedingByIdAsync(int feedingId)
+    {
+        var feeding = await _dbService.Connection.FindAsync<Feeding>(feedingId);
+        return feeding;
+    }
 }

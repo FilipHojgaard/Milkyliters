@@ -12,6 +12,8 @@ public interface IFeedingService
 
     Task UpdateFeedingAsync(int feedingId, int ml, DateTime timestamp, MilktypeEnum milktype);
 
+    Task<Feeding?> GetFeedingByIdAsync(int feedingId);
+
     Task<List<Feeding>> GetAllFeedingsAsync();
 
     Task DeleteFeedingAsync(int feedingId);
