@@ -9,6 +9,7 @@ public partial class EditFeedingPage : ContentPage
 
 	public EditFeedingPage(EditFeedingViewModel viewModel)
 	{
+		_viewModel = viewModel;
 		InitializeComponent();
 		BindingContext = _viewModel;
 	}

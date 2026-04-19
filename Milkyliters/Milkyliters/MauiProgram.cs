@@ -31,11 +31,13 @@ public static class MauiProgram
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddSingleton<FeedingHistoryPage>();
         builder.Services.AddSingleton<PooHistoryPage>();
+        builder.Services.AddTransient<EditFeedingPage>();
 
         // ViewModels
         builder.Services.AddSingleton<MainViewModel>();
         builder.Services.AddSingleton<FeedingHistoryViewModel>();
         builder.Services.AddSingleton<PooHistoryViewModel>();
+        builder.Services.AddTransient<EditFeedingViewModel>();
 
 #if DEBUG
         builder.Logging.AddDebug();

@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Milkyliters.Models;
 using Milkyliters.Services;
+using Milkyliters.Views;
 
 namespace Milkyliters.ViewModels;
 
@@ -41,5 +42,11 @@ public partial class FeedingHistoryViewModel : ObservableObject
         await _feedingService.DeleteFeedingAsync(feeding.Id);
         HapticFeedback.Default.Perform(HapticFeedbackType.LongPress);
         await LoadRecentFeedingsAsync();
+    }
+
+    [RelayCommand]
+    public async Task EditFeedingAsync(Feeding feeding)
+    {
+        await Shell.Current.GoToAsync($"{nameof(EditFeedingPage)}?feedingId={feeding.Id}");
     }
 }
