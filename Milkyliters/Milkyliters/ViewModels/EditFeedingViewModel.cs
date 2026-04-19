@@ -17,7 +17,10 @@ public partial class EditFeedingViewModel : ObservableObject
     public partial int UpdateMl { get; set; }
 
     [ObservableProperty]
-    public partial DateTime UpdateTimestamp { get; set; }
+    public partial DateTime LocalDate { get; set; }
+
+    [ObservableProperty]
+    public partial TimeSpan LocalTime { get; set; }
 
     [ObservableProperty]
     public partial MilktypeEnum UpdateMilkType{ get; set; }
@@ -38,7 +41,8 @@ public partial class EditFeedingViewModel : ObservableObject
             EditMlErrorMessage = "Ml skal være over 0";
             return;
         }
-        await _feedingService.UpdateFeedingAsync(FeedingId, UpdateMl, UpdateTimestamp, UpdateMilkType);
+        var updatedTimestamp = ComputeTimestamp();
+        await _feedingService.UpdateFeedingAsync(FeedingId, UpdateMl, updatedTimestamp, UpdateMilkType);
 
         await Shell.Current.GoToAsync("..");
     }
@@ -49,9 +53,16 @@ public partial class EditFeedingViewModel : ObservableObject
         if (feeding != null)
         {
             UpdateMl = feeding.Ml;
-            UpdateTimestamp = feeding.Timestamp;
             UpdateMilkType = feeding.Milktype;
+            LocalDate = feeding.Timestamp.ToLocalTime().Date;
+            LocalTime = feeding.Timestamp.ToLocalTime().TimeOfDay;
         }
+    }
+
+    private DateTime ComputeTimestamp()
+    {
+        var localDateTime = LocalDate.Date + LocalTime;
+        return localDateTime.ToUniversalTime();
     }
 
 }

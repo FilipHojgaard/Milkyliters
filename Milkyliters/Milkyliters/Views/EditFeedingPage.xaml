@@ -1,11 +1,38 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Milkyliters.Models"
              x:Class="Milkyliters.Views.EditFeedingPage">
     <VerticalStackLayout>
         <Label 
-            Text="{Binding FeedingId, StringFormat='Hello world! You clicked Id: {0}'}"
-            VerticalOptions="Center" 
+            Text="Rediger Mad"
+            VerticalOptions="Center"
+            FontFamily="NunitoRegular"
             HorizontalOptions="Center" />
+        <VerticalStackLayout Spacing="8">
+            <Entry
+                        Keyboard="Numeric"
+                        FontFamily="NunitoRegular"
+                        Text="{Binding UpdateMl}"/>
+
+            <Label Text="{Binding EditMlErrorMessage}"
+                           IsVisible="{Binding EditMlErrorMessage, Converter={StaticResource StringNotNullOrEmptyBoolConverter}}"
+                           TextColor="Red" />
+        </VerticalStackLayout>
+
+        <DatePicker Date="{Binding LocalDate}" FontFamily="NunitoRegular"/>
+        <TimePicker Time="{Binding LocalTime}" FontFamily="NunitoRegular"/>
+
+        <Picker FontFamily="NunitoRegular" SelectedItem="{Binding UpdateMilkType}" >
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type models:MilktypeEnum}">
+                    <models:MilktypeEnum>Semper</models:MilktypeEnum>
+                    <models:MilktypeEnum>Sensilac</models:MilktypeEnum>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Button Text="Gem"
+                Command="{Binding UpdateFeedingCommand}" />
     </VerticalStackLayout>
 </ContentPage>
